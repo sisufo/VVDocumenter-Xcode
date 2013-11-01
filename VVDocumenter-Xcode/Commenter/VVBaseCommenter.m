@@ -29,8 +29,15 @@
 
 -(NSString *) startComment
 {
+    return [self startCommentWithWrapped:YES];
+}
+
+-(NSString *) startCommentWithWrapped:(BOOL)wrapped
+{
+    NSString *wrapStr = wrapped ? @"\n" : @"\t";
+    
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
-        return [NSString stringWithFormat:@"%@/*!\n%@<#Description#>\n", self.indent, self.prefixString];
+        return [NSString stringWithFormat:@"%@/*!%@%@<#Description#>%@", self.indent, wrapStr, self.prefixString, wrapStr];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
         return [NSString stringWithFormat:@"%@<#Description#>\n", self.prefixString];
     } else {

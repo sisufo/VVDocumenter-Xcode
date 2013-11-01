@@ -21,6 +21,7 @@
 
 // Comment methods
 -(NSString *) startComment;
+-(NSString *) startCommentWithWrapped:(BOOL)wrapped;
 -(NSString *) argumentsComment;
 -(NSString *) endComment;
 -(NSString *) returnComment;
