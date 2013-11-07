@@ -39,8 +39,8 @@
         NSString *trimmedPart = [part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         //Only append when there is a enum define. (In case of the last comma, followed no define)
         if (trimmedPart.length != 0) {
-            NSString *temp = [NSString stringWithFormat:@"%@%@%@",
-                              [self startCommentWithWrapped:NO],
+            NSString *temp = [NSString stringWithFormat:@"\n%@%@%@",
+                              [self startComment],
                               [self sinceComment],
                               [self endComment]];
 
